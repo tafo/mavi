@@ -48,7 +48,7 @@ body {
 .hourhand {
   background-color: black;
   width: 2vh;
-  height: 32vh;
+  height: 30vh;
   top: 50%;
   left: calc(50% - 1vh);
   clip-path: polygon(0 0, 100% 0, 1.2vh 100%, 0.8vh 100%);
