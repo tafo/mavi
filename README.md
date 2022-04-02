@@ -1,4 +1,5 @@
 # mavi
 HTML+CSS projects
 
-1) Clock >>> A clock implementation with HTML + CSS + JS 
+Clock[https://tafo.github.io/mavi/clock]
+Calculator[https://tafo.github.io/mavi/calculator]
