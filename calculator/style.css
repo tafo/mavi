@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #93afbb;
+}
+
+.calculator {
+  background-color: #e0e0e0;
+  width: 50vmin;
+  height: 72vmin;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vmin;
+  border-radius: 4vmin;
+  padding: 2vmin;
+  box-shadow: 2vh 2vh 3vh rgba(0, 0, 0, 0.6);
+  min-width: 200px;
+  min-height: 300px;
+}
+
+.panel {
+  width: 49vmin;
+  height: 10vmin;
+  background-color: silver;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 2vmin;
+  margin-bottom: 2vmin;
+  border-style: inset;
+  box-shadow: -1vmin -1vmin 1vmin 0 rgba(255, 255, 255, 0.2);
+  font-family: "Orbitron", sans-serif;
+  text-align: right;
+}
+
+.history-container,
+.result-container {
+  height: 2vmin;
+  margin-right: 1vmin;
+}
+.history-container {
+  margin-top: 1vmin;
+  font-size: 2vmin;
+}
+.result-container {
+  font-size: 6vmin;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.operator,
+.number {
+  margin: 1vmin;
+  height: 10vmin;
+  border-radius: 2vmin;
+  font-size: 5vmin;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.2), -3px -3px 5px 0 rgba(255, 255, 255, 0.5);
+  border-style: none;
+}
+
+.operator:active,
+.number:active {
+  /* box-shadow: 12px 12px 24px 0 rgba(0, 0, 0, 0.2),
+    -12px -12px 24px 0 rgba(255, 255, 255, 0.5); */
+  box-shadow: inset 3px 3px 5px 0 rgba(0, 0, 0, 0.2), inset -3px -3px 5px 0 rgba(255, 255, 255, 0.5);
+}
+
+.double-width {
+  grid-column: span 2;
+  border-radius: 2vmin;
+}
+
+.double-height {
+  grid-row: span 2;
+  height: inherit;
+  border-radius: 2vmin;
+}
