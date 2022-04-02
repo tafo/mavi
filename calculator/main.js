@@ -87,7 +87,6 @@
     } else {
       onNumberClick(symbol);
     }
-    // onRefreshResult();
   };
 
   const onClick = (event) => {
