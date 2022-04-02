@@ -13,7 +13,7 @@
     } else if (operatorFlag) {
       resultPanel.innerHTML = value;
       operatorFlag = false;
-    } else {
+    } else if (resultPanel.innerHTML.length < 9) {
       resultPanel.innerHTML += value;
     }
   };
@@ -49,7 +49,21 @@
   const onOperatorClick = (operator) => {
     switch (operator) {
       case "C":
+        previousOperator = null;
         previousResult = 0;
+        operatorFlag = false;
+        historyPanel.innerHTML = "";
+        resultPanel.innerHTML = "0";
+        break;
+      case "CE":
+        if (resultPanel.innerHTML === "0") {
+          return;
+        } else if (resultPanel.innerHTML.length === 1) {
+          resultPanel.innerHTML = "0";
+        } else {
+          const result = resultPanel.innerHTML;
+          resultPanel.innerHTML = result.substring(0, result.length - 1);
+        }
         break;
       case "=":
         CalculateResult();
