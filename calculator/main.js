@@ -90,7 +90,10 @@
   };
 
   const onClick = (event) => {
-    onButtonClick(event.target.textContent);
+    if (!event.target.closest("button")) {
+      return;
+    }
+    onButtonClick(event.target);
   };
 
   keyboard.addEventListener("click", onClick);
