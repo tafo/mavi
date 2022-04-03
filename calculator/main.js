@@ -8,32 +8,32 @@
   let operatorFlag = false;
 
   const onNumberClick = (value) => {
-    if (resultPanel.textContent === "0") {
-      resultPanel.textContent = value;
+    if (resultPanel.innerText === "0") {
+      resultPanel.innerText = value;
     } else if (operatorFlag) {
-      resultPanel.textContent = value;
+      resultPanel.innerText = value;
       operatorFlag = false;
-    } else if (resultPanel.textContent.length < 9) {
-      resultPanel.textContent += value;
+    } else if (resultPanel.innerText.length < 9) {
+      resultPanel.innerText += value;
     }
   };
 
   const CalculateResult = () => {
     switch (previousOperator) {
       case null:
-        previousResult = new Number(resultPanel.textContent);
+        previousResult = new Number(resultPanel.innerText);
         break;
       case "/":
-        previousResult /= new Number(resultPanel.textContent);
+        previousResult /= new Number(resultPanel.innerText);
         break;
       case "X":
-        previousResult *= new Number(resultPanel.textContent);
+        previousResult *= new Number(resultPanel.innerText);
         break;
       case "-":
-        previousResult -= new Number(resultPanel.textContent);
+        previousResult -= new Number(resultPanel.innerText);
         break;
       case "+":
-        previousResult += new Number(resultPanel.textContent);
+        previousResult += new Number(resultPanel.innerText);
         break;
     }
   };
@@ -42,8 +42,8 @@
     CalculateResult();
     operatorFlag = true;
     previousOperator = operator;
-    historyPanel.textContent = previousResult + previousOperator;
-    resultPanel.textContent = previousResult;
+    historyPanel.innerText = previousResult + previousOperator;
+    resultPanel.innerText = previousResult;
   };
 
   const onOperatorClick = (operator) => {
@@ -52,23 +52,23 @@
         previousOperator = null;
         previousResult = 0;
         operatorFlag = false;
-        historyPanel.textContent = "";
-        resultPanel.textContent = "0";
+        historyPanel.innerText = "";
+        resultPanel.innerText = "0";
         break;
       case "CE":
-        if (resultPanel.textContent === "0") {
+        if (resultPanel.innerText === "0") {
           return;
-        } else if (resultPanel.textContent.length === 1) {
-          resultPanel.textContent = "0";
+        } else if (resultPanel.innerText.length === 1) {
+          resultPanel.innerText = "0";
         } else {
-          const result = resultPanel.textContent;
-          resultPanel.textContent = result.substring(0, result.length - 1);
+          const result = resultPanel.innerText;
+          resultPanel.innerText = result.substring(0, result.length - 1);
         }
         break;
       case "=":
         CalculateResult();
-        historyPanel.textContent += resultPanel.textContent + "=";
-        resultPanel.textContent = previousResult;
+        historyPanel.innerText += resultPanel.innerText + "=";
+        resultPanel.innerText = previousResult;
         previousOperator = null;
         previousResult = 0;
         break;
@@ -90,10 +90,7 @@
   };
 
   const onClick = (event) => {
-    if (!event.target.closest("button")) {
-      return;
-    }
-    onButtonClick(event.target);
+    onButtonClick(event.target.innerText);
   };
 
   keyboard.addEventListener("click", onClick);
