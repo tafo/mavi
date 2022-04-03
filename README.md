@@ -1,5 +1,6 @@
-# mavi
-HTML+CSS projects
+# HTML + CSS + JS projects
 
-Clock[https://tafo.github.io/mavi/clock]
-Calculator[https://tafo.github.io/mavi/calculator]
+Project | Live Link
+-- | --
+Clock | [https://tafo.github.io/mavi/clock]
+Simple Calculator | [https://tafo.github.io/mavi/calculator]
