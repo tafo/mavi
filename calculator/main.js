@@ -8,32 +8,32 @@
   let operatorFlag = false;
 
   const onNumberClick = (value) => {
-    if (resultPanel.innerHTML === "0") {
-      resultPanel.innerHTML = value;
+    if (resultPanel.innerText === "0") {
+      resultPanel.innerText = value;
     } else if (operatorFlag) {
-      resultPanel.innerHTML = value;
+      resultPanel.innerText = value;
       operatorFlag = false;
-    } else if (resultPanel.innerHTML.length < 9) {
-      resultPanel.innerHTML += value;
+    } else if (resultPanel.innerText.length < 9) {
+      resultPanel.innerText += value;
     }
   };
 
   const CalculateResult = () => {
     switch (previousOperator) {
       case null:
-        previousResult = new Number(resultPanel.innerHTML);
+        previousResult = new Number(resultPanel.innerText);
         break;
       case "/":
-        previousResult /= new Number(resultPanel.innerHTML);
+        previousResult /= new Number(resultPanel.innerText);
         break;
       case "X":
-        previousResult *= new Number(resultPanel.innerHTML);
+        previousResult *= new Number(resultPanel.innerText);
         break;
       case "-":
-        previousResult -= new Number(resultPanel.innerHTML);
+        previousResult -= new Number(resultPanel.innerText);
         break;
       case "+":
-        previousResult += new Number(resultPanel.innerHTML);
+        previousResult += new Number(resultPanel.innerText);
         break;
     }
   };
@@ -42,8 +42,8 @@
     CalculateResult();
     operatorFlag = true;
     previousOperator = operator;
-    historyPanel.innerHTML = previousResult + previousOperator;
-    resultPanel.innerHTML = previousResult;
+    historyPanel.innerText = previousResult + previousOperator;
+    resultPanel.innerText = previousResult;
   };
 
   const onOperatorClick = (operator) => {
@@ -52,23 +52,23 @@
         previousOperator = null;
         previousResult = 0;
         operatorFlag = false;
-        historyPanel.innerHTML = "";
-        resultPanel.innerHTML = "0";
+        historyPanel.innerText = "";
+        resultPanel.innerText = "0";
         break;
       case "CE":
-        if (resultPanel.innerHTML === "0") {
+        if (resultPanel.innerText === "0") {
           return;
-        } else if (resultPanel.innerHTML.length === 1) {
-          resultPanel.innerHTML = "0";
+        } else if (resultPanel.innerText.length === 1) {
+          resultPanel.innerText = "0";
         } else {
-          const result = resultPanel.innerHTML;
-          resultPanel.innerHTML = result.substring(0, result.length - 1);
+          const result = resultPanel.innerText;
+          resultPanel.innerText = result.substring(0, result.length - 1);
         }
         break;
       case "=":
         CalculateResult();
-        historyPanel.innerHTML += resultPanel.innerHTML + "=";
-        resultPanel.innerHTML = previousResult;
+        historyPanel.innerText += resultPanel.innerText + "=";
+        resultPanel.innerText = previousResult;
         previousOperator = null;
         previousResult = 0;
         break;
@@ -90,7 +90,7 @@
   };
 
   const onClick = (event) => {
-    onButtonClick(event.target.innerHTML);
+    onButtonClick(event.target.innerText);
   };
 
   keyboard.addEventListener("click", onClick);
